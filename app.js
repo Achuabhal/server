@@ -10,7 +10,10 @@ const app = express();
 app.use(express.json());
 
 // Enable CORS for all routes
-app.use(cors());
+const corsOptions = {
+  origin: 'https://front-sage-ten.vercel.app'
+};
+app.use(cors(corsOptions));
 
 const mourl = process.env.MONGODB_URI;
 mongoose.connect(mourl)
